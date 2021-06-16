@@ -1,16 +1,16 @@
 Integrantes del Grupo
 
-1.Nombre:
-    Rol:
-    Paralelo:
-    Aporte:
+1.Nombre: Sebastián Baeza
+    Rol: 202073538-7
+    Paralelo: 201
+    Aporte: Creación TDA lista enlazada, para el desarrollo del problema 1
 
-2.Nombre:Andrés Puelles
-    Rol:202073607-3
-    Paralelo:201
+2.Nombre: Andrés Puelles
+    Rol: 202073607-3
+    Paralelo: 201
     Aporte: 
 
-3.Nombre:Luis Zegarra 
-    Rol:202073628-6
+3.Nombre: Luis Zegarra 
+    Rol: 202073628-6
     Paralelo: 203
     Aporte: 
