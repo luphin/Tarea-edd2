@@ -49,6 +49,8 @@ tLista::tLista() {
     pos = 0;
 };
 
+//----------------------O------------------------
+
 void tLista::clear(){
     while (listSize != 0) {
         if (curr == head) {
@@ -67,6 +69,8 @@ void tLista::clear(){
     pos = 0;
 };
 
+//----------------------O------------------------
+
 int tLista::insert(tElemLista item) {
     tNodo* aux = curr->sig;
     curr->sig = new tNodo;
@@ -79,6 +83,8 @@ int tLista::insert(tElemLista item) {
     return pos;
 };
 
+//----------------------O------------------------
+
 int tLista::append(tElemLista item){
     while (curr != tail) {
         curr = curr->sig;
@@ -90,6 +96,8 @@ int tLista::append(tElemLista item){
     listSize++;
     return pos;
 };
+
+//----------------------O------------------------
 
 tElemLista tLista::erase(){
     tElemLista final;
@@ -113,14 +121,20 @@ tElemLista tLista::erase(){
     return final;
 };
 
+//----------------------O------------------------
+
 void tLista::moveToStart() {
     curr = head; pos = 0; 
-    };
+};
+
+//----------------------O------------------------
 
 void tLista::moveToEnd() {
     curr = tail; 
     pos = listSize;
-    };
+};
+
+//----------------------O------------------------
 
 void tLista::prev() {
     tNodo* temp;
@@ -131,19 +145,27 @@ void tLista::prev() {
     pos--;
 };
 
+//----------------------O------------------------
+
 void tLista::next() {
     if (curr != tail) {
         curr = curr->sig; pos++; 
     };
 };
 
+//----------------------O------------------------
+
 int tLista::length(){
     return listSize;
 };
 
+//----------------------O------------------------
+
 int tLista::currPos(){
     return pos;
 };
+
+//----------------------O------------------------
 
 void tLista::moveToPos(unsigned int posicion) {
     unsigned int i;
@@ -155,6 +177,8 @@ void tLista::moveToPos(unsigned int posicion) {
         pos++;
     };
 };
+
+//----------------------O------------------------
 
 tElemLista tLista::getValue(){
     return curr->info;

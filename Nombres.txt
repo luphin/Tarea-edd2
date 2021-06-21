@@ -3,7 +3,7 @@ Integrantes del Grupo
 1.Nombre: Sebastián Baeza
     Rol: 202073538-7
     Paralelo: 201
-    Aporte: Creación TDA lista enlazada, para el desarrollo del problema 1
+    Aporte: Creación TDA_Lista_Enlazada y TDA_Arbol_BB, para el desarrollo de los problemas
 
 2.Nombre: Andrés Puelles
     Rol: 202073607-3
