@@ -1,4 +1,4 @@
-typedef int tElemLista;
+typedef monomio tElemLista; //era int, pero estoy probando algo para la 1
 
 struct tNodo{
     tElemLista info;
