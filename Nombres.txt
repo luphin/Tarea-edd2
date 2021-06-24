@@ -3,7 +3,8 @@ Integrantes del Grupo
 1.Nombre: Sebastián Baeza
     Rol: 202073538-7
     Paralelo: 201
-    Aporte: Creación TDA_Lista_Enlazada y TDA_Arbol_BB, para el desarrollo de los problemas
+    Aporte: Creación TDA_Lista_Enlazada, TDA_Arbol_BB y Algoritmo_de_Horner, para el desarrollo de los problemas
+            Extraccion de datos de los polinomios en problema 1
 
 2.Nombre: Andrés Puelles
     Rol: 202073607-3
