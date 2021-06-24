@@ -5,6 +5,11 @@ struct tNodo{
     tNodo* sig;
 };
 
+struct monomio{
+    int coeficiente;
+    int exponente;
+};
+
 class tLista {
     private:
 

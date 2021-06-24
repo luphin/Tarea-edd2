@@ -1,13 +1,10 @@
 #include "TDA_Lista_Enlazada.cpp"
+#include "Algoritmo_de_Horner.cpp"
 #include <iostream>
 #include <string>
 #include <fstream>
 using namespace std;
 
-struct monomio{
-    int coeficiente;
-    int exponente;
-};
 
 int main(){
     fstream polinomios; 
@@ -31,7 +28,15 @@ int main(){
             polinomios.read((char*)&coef, sizeof(int));
             nuevo.coeficiente = coef;
             nuevo.exponente = exp;
-            lista_Polinomios[i].append(nuevo);
+            lista_Polinomios[i].moveToStart();
+            while (lista_Polinomios[i].currPos() != exp){
+                if (lista_Polinomios[i].currPos() == (lista_Polinomios[i].length()) - 1){
+                    monomio vacio;
+                    lista_Polinomios[i].insert(vacio);
+                };
+                lista_Polinomios[i].next();
+            };
+            lista_Polinomios[i].insert(nuevo);
         };
     };
 
