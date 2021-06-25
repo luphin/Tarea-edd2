@@ -1,4 +1,3 @@
-#include "TDA_Lista_Enlazada.cpp"
 #include "Algoritmo_de_Horner.cpp"
 #include <iostream>
 #include <string>
@@ -32,22 +31,27 @@ int main(){
             nuevo.coeficiente = coef;
             nuevo.exponente = exp;
             lista_Polinomios[i].moveToStart();
+            /*
             while (lista_Polinomios[i].currPos() != exp){ //se revisa si el exponente concuerda con la posicion en la lista
                 if (lista_Polinomios[i].currPos() == (lista_Polinomios[i].length()) - 1){
                     monomio vacio;
+                    vacio.coeficiente = 0;
+                    vacio.exponente = lista_Polinomios[i].currPos();
                     lista_Polinomios[i].insert(vacio); //si no lo hace, se llena con un "espacio vacio"
                 };
                 lista_Polinomios[i].next();
             };
+            */
             lista_Polinomios[i].insert(nuevo); //se inserta el monomio en la posicion correspondiente
         };
     };
-
+/*
     fstream resultado;
     resultado.open("salidaPolinomio.txt", ios::out);
     string operacion, evaluar = "EVALUAR", coeficiente = "COEFICIENTE";
-    while (operacion != "EOF"){ //se verifica que el archivo aun no termina
-        polinomios.read((char*)&operacion, sizeof(char)); //se lee la operacion a realizar
+    int contador = 0;
+    while (contador < 4){ //se verifica que el archivo aun no termina
+        polinomios.read((char*)&operacion, sizeof(string)); //se lee la operacion a realizar
         if (operacion == evaluar){
             int posicion_Polinomio;
             float valor_Evaluar;
@@ -61,13 +65,16 @@ int main(){
             int valor_ext;
             polinomios.read((char*)&num_polinomio, sizeof(int));
             polinomios.read((char*)&valor_ext, sizeof(int));
-            int g_a = valor_ext - 1; //exponente que se pide menos 1 
-            int g = lista_Polinomios[num_polinomio][g_a]; //busca el polinomio que se necesita 
-            int g_b = g.exponente //busca el exponente dentro del polinomio
+            int g_a = valor_ext - 1; //exponente que se pide menos 1
+            lista_Polinomios[num_polinomio].moveToPos(g_a); //mover a la posicion del polinomio requerido
+            tElemLista g = lista_Polinomios[num_polinomio].getValue(); //busca el polinomio que se necesita 
+            float g_b = g.coeficiente; //busca el coeficiente dentro del polinomio
             resultado.write((char*)&g_b, sizeof(int)); //se escribe la solucion en el archivo de respuesta
         };
+        contador++;
     };
-    resultado.close();
+*/
+    //resultado.close();
     polinomios.close();
     return 0;
 };

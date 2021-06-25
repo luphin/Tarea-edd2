@@ -1,13 +1,13 @@
+struct monomio{
+    int coeficiente;
+    int exponente;
+};
+
 typedef monomio tElemLista; //era int, pero estoy probando algo para la 1
 
 struct tNodo{
     tElemLista info;
     tNodo* sig;
-};
-
-struct monomio{
-    int coeficiente;
-    int exponente;
 };
 
 class tLista {
