@@ -14,4 +14,4 @@ Integrantes del Grupo
 3.Nombre: Luis Zegarra 
     Rol: 202073628-6
     Paralelo: 203
-    Aporte: 
+    Aporte: Busqueda de solucion para problemna dos aplicando ABB, junto con aplicaciones d e TDA, pero los intentos fueron fallidos. 
