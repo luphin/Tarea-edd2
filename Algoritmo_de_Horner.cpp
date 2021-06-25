@@ -12,3 +12,15 @@ int Horner(tLista polinomio, int evaluar){
         return b;
     };
 };
+
+int HornerABB(tABB arbol, int evaluar){
+    int cantidad = 1
+    int b = arbol.inOrden().coeficiente;
+    if (cantidad == arbol.size()){
+        return b;
+    }else{
+        arbol.inOrden();
+        int bb = b + (HornerABB(arbol, evaluar)* evaluar);
+        return bb;
+    }; 
+};
