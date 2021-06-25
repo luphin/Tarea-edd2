@@ -5,6 +5,9 @@
 #include <fstream>
 using namespace std;
 
+float evaluador(tLista polinomio, float evaluar){
+    return Horner(polinomio, evaluar);
+}
 
 int main(){
     fstream polinomios; 
@@ -40,5 +43,24 @@ int main(){
         };
     };
 
+    fstream resultado;
+    resultado.open("salidaPolinomio.txt", ios::out);
+    string operacion, evaluar = "EVALUAR", coeficiente = "COEFICIENTE";
+    while (operacion != "EOF"){ //se verifica que el archivo aun no termina
+        polinomios.read((char*)&operacion, sizeof(char)); //se lee la operacion a realizar
+        if (operacion == evaluar){
+            int posicion_Polinomio;
+            float valor_Evaluar;
+            polinomios.read((char*)&posicion_Polinomio, sizeof(int)); //se ubican los valores necesarios en variables
+            polinomios.read((char*)&valor_Evaluar, sizeof(float));
+            float evaluado = evaluador(lista_Polinomios[posicion_Polinomio], valor_Evaluar);
+            resultado.write((char*)&evaluado, sizeof(float)); //se escribe la solucion en el archivo de respuesta
+        };
+        if (operacion == coeficiente){
+
+        };
+    };
+    resultado.close();
+    polinomios.close();
     return 0;
 };
