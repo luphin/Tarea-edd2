@@ -57,7 +57,14 @@ int main(){
             resultado.write((char*)&evaluado, sizeof(float)); //se escribe la solucion en el archivo de respuesta
         };
         if (operacion == coeficiente){
-
+            int num_polinomio;
+            int valor_ext;
+            polinomios.read((char*)&num_polinomio, sizeof(int));
+            polinomios.read((char*)&valor_ext, sizeof(int));
+            int g_a = valor_ext - 1; //exponente que se pide menos 1 
+            int g = lista_Polinomios[num_polinomio][g_a]; //busca el polinomio que se necesita 
+            int g_b = g.exponente //busca el exponente dentro del polinomio
+            resultado.write((char*)&g_b, sizeof(int)); //se escribe la solucion en el archivo de respuesta
         };
     };
     resultado.close();
