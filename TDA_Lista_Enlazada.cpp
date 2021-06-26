@@ -188,3 +188,5 @@ void tLista::moveToPos(unsigned int posicion) {
 tElemLista tLista::getValue(){
     return curr->info;
 };
+
+//-----------------O-----------------------------
