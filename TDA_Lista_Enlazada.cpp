@@ -48,6 +48,18 @@ class tLista {
         tElemLista getValue();        // obtiene el valor del elemento actual de la lista
 };
 
+/*****
+* tLista tLista
+******
+* Constructor de listas
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* "Retorna" una nueva lista vacia
+*****/
 tLista::tLista() {
     head = tail = curr = new tNodo;
     listSize = 0;
@@ -55,7 +67,18 @@ tLista::tLista() {
 };
 
 //----------------------O------------------------
-
+/*****
+* Void clear
+******
+* Elimina todos los elementos de la lista, dejandola vacia
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tLista::clear(){
     while (listSize != 0) {
         if (curr == head) {
@@ -75,7 +98,18 @@ void tLista::clear(){
 };
 
 //----------------------O------------------------
-
+/*****
+* int insert
+******
+* Inserta un elemento en la posición actual en la lista
+******
+* Input:
+* tElemLista item : El elemento a insertar en la lista
+* .......
+******
+* Returns:
+* int, La posición actual de la variable "pos" en la lista
+*****/
 int tLista::insert(tElemLista item) {
     tNodo* aux = curr->sig;
     curr->sig = new tNodo;
@@ -89,7 +123,18 @@ int tLista::insert(tElemLista item) {
 };
 
 //----------------------O------------------------
-
+/*****
+* int append
+******
+* Añade un elemento al final de la lista
+******
+* Input:
+* tElemLista item : El elemento a añadir en la lista
+* .......
+******
+* Returns:
+* int, La posición actual de la variable "pos" en la lista
+*****/
 int tLista::append(tElemLista item){
     while (curr != tail) {
         curr = curr->sig;
@@ -103,7 +148,18 @@ int tLista::append(tElemLista item){
 };
 
 //----------------------O------------------------
-
+/*****
+* tELemLista erase
+******
+* Borra el elemento actual de la lista (donde estan "curr" y "pos"), retornando su valor
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* tElemLista, El elemento recién eliminado
+*****/
 tElemLista tLista::erase(){
     tElemLista final;
     if (curr == head) {
@@ -127,20 +183,53 @@ tElemLista tLista::erase(){
 };
 
 //----------------------O------------------------
-
+/*****
+* Void moveToStart
+******
+* Mueve los elementos "curr" y "pos" al inicio de la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tLista::moveToStart() {
     curr = head; pos = 0; 
 };
 
 //----------------------O------------------------
-
+/*****
+* Void moveToEnd
+******
+* Mueve los elementos "curr" y "pos" a la cola de la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tLista::moveToEnd() {
     curr = tail; 
     pos = listSize;
 };
 
 //----------------------O------------------------
-
+/*****
+* Void prev
+******
+* Mueve los elementos "curr" y "pos" a la posicion anterior en la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tLista::prev() {
     tNodo* temp;
     if (curr == head) return;
@@ -151,7 +240,18 @@ void tLista::prev() {
 };
 
 //----------------------O------------------------
-
+/*****
+* Void next
+******
+* Mueve los elementos "curr" y "pos" a la posición siguiente en la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tLista::next() {
     if (curr != tail) {
         curr = curr->sig; pos++; 
@@ -159,19 +259,52 @@ void tLista::next() {
 };
 
 //----------------------O------------------------
-
+/*****
+* int length
+******
+* Retorna el tamaño actual de la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* int, El tamaño de la lista
+*****/
 int tLista::length(){
     return listSize;
 };
 
 //----------------------O------------------------
-
+/*****
+* int currPos
+******
+* Retorna la posición actual de la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* int, La posicion actual en la lista
+*****/
 int tLista::currPos(){
     return pos;
 };
 
 //----------------------O------------------------
-
+/*****
+* Void moveToPos
+******
+* Mueve los elementos "curr" y "pos" a una posicion especificada
+******
+* Input:
+* unsigned int posicion : La posición a la que se moveran "curr" y "pos"
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tLista::moveToPos(unsigned int posicion) {
     unsigned int i;
     if (posicion < 0 || posicion > listSize) return;
@@ -184,7 +317,18 @@ void tLista::moveToPos(unsigned int posicion) {
 };
 
 //----------------------O------------------------
-
+/*****
+* tElemLista getValue
+******
+* Retorna el valor de la posición actual en la lista
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* tElemLista, La información del elemento actual de la lista
+*****/
 tElemLista tLista::getValue(){
     return curr->info;
 };
