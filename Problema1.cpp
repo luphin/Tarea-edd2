@@ -1,12 +1,35 @@
-#include "Algoritmo_de_Horner.cpp"
+#include "TDA_Lista_Enlazada.cpp"
 #include <iostream>
 #include <string>
 #include <fstream>
 using namespace std;
 
-float evaluar(tLista polinomio, float evaluar){
-    return Horner(polinomio, evaluar);
-}
+
+int Horner(tLista polinomio, int evaluar){
+    if (polinomio.currPos() == (0)){
+        return polinomio.getValue().coeficiente;
+    } else {
+        int b_n = polinomio.getValue().coeficiente;
+        polinomio.prev();
+        int b = b_n + (Horner(polinomio, evaluar) * evaluar);
+        return b;
+    };
+};
+
+
+
+void orden_descendente(tLista polinomio){
+    for (int i = 0 ; i < polinomio.length() ; i++){
+        polinomio.moveToEnd();
+        monomio temp = polinomio.getValue();;
+        cout << temp.coeficiente << "    " << temp.exponente << endl;
+        int validador = 1;
+        polinomio.moveToStart();
+    };
+};
+
+
+
 
 int main(){
     fstream polinomios; 
@@ -33,6 +56,7 @@ int main(){
             cout << "Exponente - coeficiente " << exp << " " << coef << endl;
             nuevo.coeficiente = coef;
             nuevo.exponente = exp;
+            /*
             lista_Polinomios[i].moveToStart();
             while (lista_Polinomios[i].currPos() != exp){ //se revisa si el exponente concuerda con la posicion en la lista
                 if (lista_Polinomios[i].currPos() == (lista_Polinomios[i].length()) - 1){
@@ -44,7 +68,9 @@ int main(){
                 };
                 lista_Polinomios[i].next();
             };
-            lista_Polinomios[i].insert(nuevo); //se inserta el monomio en la posicion correspondiente
+            */
+            lista_Polinomios[i].insert(nuevo); //se inserta el monomio
+            orden_descendente (lista_Polinomios[i]);
         };
     };
     fstream resultado;
@@ -58,7 +84,8 @@ int main(){
             polinomios >> posicion_Polinomio; //se ubican los valores necesarios en variables
             polinomios >> valor_Evaluar;
             cout << valor_Evaluar << endl;
-            float evaluado = evaluar(lista_Polinomios[posicion_Polinomio], valor_Evaluar);
+            lista_Polinomios[posicion_Polinomio].moveToEnd();
+            float evaluado = Horner(lista_Polinomios[posicion_Polinomio], valor_Evaluar);
             cout << "evaluado " << evaluado << endl;
             resultado << evaluado; //se escribe la solucion en el archivo de respuesta
         };
@@ -66,14 +93,15 @@ int main(){
             int num_polinomio;
             int valor_ext;
             polinomios >> num_polinomio;
-            polinomios >> valor_ext;
+            polinomios >> valor_ext; //exponente que se pide
             cout << "numero polinomio " << num_polinomio << endl;
-            int g_a = valor_ext - 1; //exponente que se pide menos 1
-            lista_Polinomios[num_polinomio].moveToPos(g_a); //mover a la posicion del polinomio requerido
-            tElemLista g = lista_Polinomios[num_polinomio].getValue(); //busca el polinomio que se necesita 
-            float g_b = g.coeficiente; //busca el coeficiente dentro del polinomio
-            resultado << g_b; //se escribe la solucion en el archivo de respuesta
-            cout << "G_B " << g_b << endl;
+            lista_Polinomios[num_polinomio].moveToStart(); 
+            while (lista_Polinomios[num_polinomio].getValue().exponente != valor_ext){
+                lista_Polinomios[num_polinomio].next(); //mover a la posicion del polinomio requerido
+            }; 
+            float g = lista_Polinomios[num_polinomio].getValue().coeficiente; //busca el polinomio que se necesita, y su coeficiente 
+            resultado << g; //se escribe la solucion en el archivo de respuesta
+            cout << "G" << g << endl;
         };
     };
     resultado.close();
