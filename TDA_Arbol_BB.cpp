@@ -33,12 +33,38 @@ class tABB {
         void postOrden();        // recorrido post-orden de un ABB
 };
 
+/*****
+* tABB
+******
+* Crea un ABB vacío
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* 
+*****/
+
 tABB::tABB(){
     raiz = nullptr;
     nElems = 0;
 };
 
 //----------------------O------------------------
+
+/*****
+* Void clear
+******
+* Elimina los elementos del ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 
 void tABB::clear() {
     clearHelp(raiz);
@@ -54,6 +80,18 @@ void clearHelp(tNodoArbolBin *nodo) {
 };
 
 //----------------------O------------------------
+/*****
+* Void insert
+******
+* Inserta un elemento determinado en el ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 
 void tABB::insert(tipoElem item) {
     insertHelp(raiz, item);
@@ -72,7 +110,18 @@ void insertHelp(tNodoArbolBin *nodo, tipoElem item) {
     };
 };
 //----------------------O------------------------
-
+/*****
+* Void remove
+******
+* Elimina un tipoElem item del ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tABB::remove(tipoElem item) {
     removeHelp(raiz, item);
     nElems--;
@@ -84,6 +133,18 @@ void removeHelp(tNodoArbolBin *nodo, tipoElem item) {
 
 //----------------------O------------------------
 
+/*****
+* find
+******
+* Busca un 'tipoElem item' específico en el ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 int tABB::find(tipoElem item) {
     return findHelp(raiz, item);
 };
@@ -101,12 +162,33 @@ int findHelp(tNodoArbolBin *nodo, tipoElem item) {
     };
 };
 //----------------------O------------------------
-
+/*****
+* Funcion size
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Retorna el tamaño del arbol
+*****/
 int tABB::size() {
     return nElems;
 };
 
 //----------------------O------------------------
+/*****
+* Void inOrden
+******
+* Recorre inorden el ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 
 void tABB::inOrden () {
     inOrdenHelp (raiz);
@@ -121,6 +203,18 @@ void inOrdenHelp (tNodoArbolBin *nodo) {
 
 //----------------------O------------------------
 
+/*****
+* Void preOrden
+******
+* Recorre de manera preorden el ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tABB::preOrden () {
     preOrdenHelp (raiz);
 };
@@ -134,6 +228,18 @@ void preOrdenHelp (tNodoArbolBin *nodo) {
 
 //----------------------O------------------------
 
+/*****
+* Void postOrden
+******
+* Recorre de manera postorden el ABB
+******
+* Input:
+* No requiere input
+* .......
+******
+* Returns:
+* Al ser una funcion void, no posee return
+*****/
 void tABB::postOrden () {
     postOrdenHelp (raiz);
 };
@@ -148,6 +254,5 @@ void postOrdenHelp (tNodoArbolBin *nodo) {
 //----------------------O------------------------
 
 void procesar(tipoElem info) {
-    return info;
-
+    info;
 };
