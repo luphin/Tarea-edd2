@@ -9,7 +9,7 @@ Integrantes del Grupo
 2.Nombre: Andrés Puelles
     Rol: 202073607-3
     Paralelo: 201
-    Aporte: 
+    Aporte:Aporte:Corrección de errores, ademas de intentos fallidos para solucion del problema 2 
 
 3.Nombre: Luis Zegarra 
     Rol: 202073628-6
