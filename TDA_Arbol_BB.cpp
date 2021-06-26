@@ -1,16 +1,16 @@
 typedef int tipoElem;
 
-struct tNodoArbolBin{
-    tipoElem info;
-    tNodoArbolBin* izq;
-    tNodoArbolBin* der;
+struct tNodoArbolBin{        //struct para crear un nodo del arbol
+    tipoElem info;             //almacena el dato
+    tNodoArbolBin* izq;         //puntero al nodo izquierdo
+    tNodoArbolBin* der;           //puntero al nodo derecho
 };
 
 class tABB {
     private:
 
-        tNodoArbolBin* raiz;
-        int nElems;
+        tNodoArbolBin* raiz;        //puntero del arbol que va a la raiz 
+        int nElems;                 //variable para almacenar numero de elemntos
 
     public:
 
@@ -34,16 +34,16 @@ class tABB {
 };
 
 tABB::tABB(){
-    raiz = nullptr;
-    nElems = 0;
+    raiz = nullptr;   //raiz nula 
+    nElems = 0;       //inicializa con cero elemntos
 };
 
 //----------------------O------------------------
 
 void tABB::clear() {
     clearHelp(raiz);
-    raiz = nullptr;
-    nElems = 0;
+    raiz = nullptr;   //da valor nulo a la raiz
+    nElems = 0;    //inicializa con cero 
 };
 
 void clearHelp(tNodoArbolBin *nodo) {
@@ -61,12 +61,12 @@ void tABB::insert(tipoElem item) {
 };
 
 void insertHelp(tNodoArbolBin *nodo, tipoElem item) {
-    if (nodo == nullptr) {
-        nodo->info = item;
+    if (nodo == nullptr) {    //verifica si el nodo es nulo
+        nodo->info = item;    //se led a el valor al nodo
     } else {
-        if (item < nodo->info) {
+        if (item < nodo->info) {  //veridica si el nodo va a la derecha o izquierda
             insertHelp(nodo->izq, item);
-        } else if(item > nodo->info) {
+        } else if(item > nodo->info) { //veridica si el nodo va a la derecha o izquierda
             insertHelp(nodo->der, item);
         };
     };
@@ -85,19 +85,19 @@ void removeHelp(tNodoArbolBin *nodo, tipoElem item) {
 //----------------------O------------------------
 
 int tABB::find(tipoElem item) {
-    return findHelp(raiz, item);
+    return findHelp(raiz, item);   //se utiliza la funcion finHelp()
 };
 int findHelp(tNodoArbolBin *nodo, tipoElem item) {
-    if (nodo == nullptr) {
+    if (nodo == nullptr) {  //veridfica si el nodo esta vacio
         return 0;
     };
-    if (nodo->info == item) {
+    if (nodo->info == item) {   //verifica el dato que esta dentro del nodo es igual a item
         return 1;
     };
     if (item < nodo->info) {
-        return findHelp(nodo->izq, item);
+        return findHelp(nodo->izq, item);  //verifica el dato que esta dentro del nodo es mayor a item
     } else {
-        return findHelp(nodo->der, item);
+        return findHelp(nodo->der, item);  //verifica el dato que esta dentro del nodo es menor a item
     };
 };
 //----------------------O------------------------
@@ -122,7 +122,7 @@ void inOrdenHelp (tNodoArbolBin *nodo) {
 //----------------------O------------------------
 
 void tABB::preOrden () {
-    preOrdenHelp (raiz);
+    preOrdenHelp (raiz);      //lama a la funcion preOrdenHelp() 
 };
 
 void preOrdenHelp (tNodoArbolBin *nodo) {
@@ -135,11 +135,11 @@ void preOrdenHelp (tNodoArbolBin *nodo) {
 //----------------------O------------------------
 
 void tABB::postOrden () {
-    postOrdenHelp (raiz);
+    postOrdenHelp (raiz);     //llama a la funcion postOrden()
 };
 
 void postOrdenHelp (tNodoArbolBin *nodo) {
-    if (nodo == nullptr) return;
+    if (nodo == nullptr) return;    //si el nodo es vacio retorna
     postOrdenHelp (nodo->izq); // visita hijo izquierdo en in-orden
     postOrdenHelp (nodo->der); // visita hijo derecho en in-orden
     procesar(nodo->info); // procesa nodo actual
@@ -148,6 +148,6 @@ void postOrdenHelp (tNodoArbolBin *nodo) {
 //----------------------O------------------------
 
 void procesar(tipoElem info) {
-    return info;
+    return info;   //retorna variable info
 
 };
